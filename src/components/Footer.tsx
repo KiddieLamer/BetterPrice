@@ -4,8 +4,7 @@ export default function Footer() {
       <div className="max-w-[640px] mx-auto text-center text-[13px] text-muted leading-relaxed">
         <p className="mb-1">BetterPrice &copy; {new Date().getFullYear()}</p>
         <p>
-          Kami mendapat komisi dari pembelian melalui link afiliasi.
-          Harga dapat berubah sewaktu-waktu.
+          Layanan gratis. Harga dapat berubah sewaktu-waktu.
         </p>
       </div>
     </footer>

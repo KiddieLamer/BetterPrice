@@ -160,7 +160,6 @@ function CompareContent() {
 
             <div className="text-center text-[12px] text-muted pt-6 pb-4">
               Harga dapat berubah sewaktu-waktu.
-              Kami mendapat komisi dari pembelian melalui link afiliasi.
             </div>
           </div>
         )}
