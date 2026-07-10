@@ -56,24 +56,27 @@ export default function Home() {
                 Contoh: shopee.co.id/product/123456789/...
               </p>
 
-              <div
-                className="flex items-center gap-6 sm:gap-10 mt-2 text-[14px]"
-                style={{ color: "rgba(255,255,255,0.7)" }}
-              >
-                <div className="text-center">
-                  <div className="text-2xl mb-1.5">📋</div>
-                  <div>Paste link</div>
-                </div>
-                <div className="text-white/20 text-xl">→</div>
-                <div className="text-center">
-                  <div className="text-2xl mb-1.5">🔍</div>
-                  <div>Cari harga</div>
-                </div>
-                <div className="text-white/20 text-xl">→</div>
-                <div className="text-center">
-                  <div className="text-2xl mb-1.5">🛒</div>
-                  <div>Beli termurah</div>
-                </div>
+              <div className="flex items-stretch gap-8 sm:gap-14 mt-4">
+                {[
+                  { n: "01", label: "Paste link Shopee" },
+                  { n: "02", label: "Cari harga termurah" },
+                  { n: "03", label: "Beli & hemat" },
+                ].map((step) => (
+                  <div key={step.n} className="flex flex-col gap-2">
+                    <span
+                      className="text-[15px] font-semibold tabular-nums"
+                      style={{ color: "rgba(255,255,255,0.45)" }}
+                    >
+                      {step.n}
+                    </span>
+                    <span
+                      className="text-[14px] font-medium leading-tight"
+                      style={{ color: "rgba(255,255,255,0.9)" }}
+                    >
+                      {step.label}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </main>

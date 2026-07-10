@@ -21,16 +21,26 @@ export default function OfferCard({ offer }: OfferCardProps) {
         <div className="flex items-center gap-2">
           <p className="text-[15px] font-medium truncate">{offer.storeName}</p>
           {offer.isLowest && (
-            <span className="text-[11px] font-medium text-white bg-green-500 px-2 py-0.5 rounded-full whitespace-nowrap">
+            <span className="text-[11px] font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-md whitespace-nowrap">
               Termurah
             </span>
           )}
         </div>
-        <div className="flex items-center gap-3 mt-1 text-[13px] text-muted">
-          {offer.rating && <span>⭐ {offer.rating}</span>}
-          {offer.location && <span>{offer.location}</span>}
+        <div className="flex items-center gap-2 mt-1 text-[13px] text-muted">
+          {offer.rating && (
+            <span className="font-medium text-foreground">{offer.rating.toFixed(1)}</span>
+          )}
+          {offer.location && (
+            <>
+              <span className="text-gray-300">·</span>
+              <span>{offer.location}</span>
+            </>
+          )}
           {offer.historicalSold && (
-            <span>{offer.historicalSold >= 1000 ? `${(offer.historicalSold / 1000).toFixed(1)}rb` : offer.historicalSold} terjual</span>
+            <>
+              <span className="text-gray-300">·</span>
+              <span>{offer.historicalSold >= 1000 ? `${(offer.historicalSold / 1000).toFixed(1)}rb` : offer.historicalSold} terjual</span>
+            </>
           )}
         </div>
       </div>

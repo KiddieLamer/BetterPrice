@@ -127,9 +127,9 @@ function CompareContent() {
                   </p>
                   <button
                     onClick={handleShare}
-                    className="text-[13px] text-muted hover:text-foreground transition-colors"
+                    className="text-[13px] font-medium text-muted hover:text-foreground transition-colors underline underline-offset-2 decoration-gray-300"
                   >
-                    🔗 Bagikan
+                    Bagikan
                   </button>
                 </div>
 
@@ -150,9 +150,9 @@ function CompareContent() {
                     href={state.data.lazadaUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 h-12 rounded-xl border border-blue-200 bg-blue-50 text-blue-700 text-[15px] font-medium hover:bg-blue-100 transition-colors"
+                    className="flex items-center justify-center h-12 rounded-xl border border-gray-200 bg-white text-foreground text-[15px] font-medium hover:bg-gray-50 transition-colors"
                   >
-                    🔍 Cek di Lazada
+                    Cek juga di Lazada
                   </a>
                 )}
               </div>
