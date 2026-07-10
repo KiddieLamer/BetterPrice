@@ -1,30 +1,15 @@
 import type { Metadata } from "next";
-import { Schibsted_Grotesk, Inter, Noto_Sans, Fustat } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-
-const schibstedGrotesk = Schibsted_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-schibsted-grotesk",
-});
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
 
-const notoSans = Noto_Sans({
-  subsets: ["latin"],
-  variable: "--font-noto-sans",
-});
-
-const fustat = Fustat({
-  subsets: ["latin"],
-  variable: "--font-fustat",
-});
-
 export const metadata: Metadata = {
-  title: "BetterPrice - Price Comparison Platform",
-  description: "Find the best prices across Indonesian marketplaces",
+  title: "BetterPrice - Cek Harga Termurah",
+  description: "Paste link Shopee, lihat harga dari semua toko. Cari harga termurah dalam satu klik.",
 };
 
 export default function RootLayout({
@@ -33,11 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${schibstedGrotesk.variable} ${inter.variable} ${notoSans.variable} ${fustat.variable}`}
-    >
-      <body className="min-h-screen antialiased">{children}</body>
+    <html lang="id" className={`${inter.variable}`}>
+      <body className="font-inter min-h-screen antialiased">{children}</body>
     </html>
   );
 }
