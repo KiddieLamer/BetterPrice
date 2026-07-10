@@ -56,11 +56,10 @@
 ### V1 — MVP (Core Loop)
 
 | ID | Feature | Description | Priority |
-|---|---|---|---|
+|---|---|---|---|---|
 | F-01 | Paste Link Input | Text input untuk Shopee product URL | P0 |
 | F-02 | URL Parser | Ekstrak shop_id, item_id, product name | P0 |
 | F-03 | Shopee Price Check | Cari harga dari Shopee Affiliate API | P0 |
-| F-04 | Lazada Search Redirect | Redirect user ke Lazada search page (via Involve Asia deeplink) — bukan price comparison | P2 |
 | F-05 | Compare Result | Tampilkan produk + daftar harga Shopee terendah ke tertinggi | P0 |
 | F-06 | Affiliate Redirect | Link ke Shopee dengan tag affiliate | P0 |
 | F-07 | Error Handling | Invalid URL, product not found, API error | P0 |
@@ -72,26 +71,25 @@
 ### V2 — Enhancement
 
 | ID | Feature | Description | Priority |
-|---|---|---|---|
+|---|---|---|---|---|
 | F-12 | Search by Name | Search produk tanpa link | P1 |
 | F-13 | Price History Chart | Grafik harga dari cron job | P1 |
-| F-14 | Lazada Price Compare | Exact price comparison Shopee vs Lazada (via scraping/partnership) | P2 |
-| F-15 | Lazada Search Redirect | Search redirect ke Lazada dari hasil compare | P2 |
-| F-16 | Share Result | Shareable link hasil compare | P2 |
-| F-17 | SEO Product Pages | Tiap produk punya halaman sendiri | P1 |
-| F-18 | Price Alert | Notifikasi ketika harga turun | P2 |
-| F-19 | Dark Mode | Toggle tema | P2 |
+| F-14 | Lazada Integration | Search redirect + future price compare Shopee vs Lazada | P2 |
+| F-15 | Share Result | Shareable link hasil compare | P2 |
+| F-16 | SEO Product Pages | Tiap produk punya halaman sendiri | P1 |
+| F-17 | Price Alert | Notifikasi ketika harga turun | P2 |
+| F-18 | Dark Mode | Toggle tema | P2 |
 
 ### V3 — Scale
 
 | ID | Feature | Description | Priority |
-|---|---|---|---|
-| F-20 | User Accounts | Save history, watchlist | P2 |
-| F-21 | Tokopedia Integration | Compare Shopee vs Tokopedia (via scraping/API) | P2 |
-| F-22 | Browser Extension | Compare from any page | P2 |
-| F-23 | Bulk Check | Paste multiple links at once | P2 |
-| F-24 | Affiliate Dashboard | Earn stats for admin | P2 |
-| F-25 | Multi-language | EN/ID | P3 |
+|---|---|---|---|---|
+| F-19 | User Accounts | Save history, watchlist | P2 |
+| F-20 | Tokopedia Integration | Compare Shopee vs Tokopedia (via scraping/API) | P2 |
+| F-21 | Browser Extension | Compare from any page | P2 |
+| F-22 | Bulk Check | Paste multiple links at once | P2 |
+| F-23 | Affiliate Dashboard | Earn stats for admin | P2 |
+| F-24 | Multi-language | EN/ID | P3 |
 
 ---
 
@@ -127,14 +125,12 @@ THEN user sees:
   - Product name
   - Price sorted: lowest → highest (Shopee sellers only)
   - Each offer shows: store name, price, CTA button
-  - "Cek di Lazada" button (search redirect, not price)
 
 GIVEN multiple Shopee offers exist
 WHEN displayed
 THEN cheapest price is highlighted with badge "Termurah"
   And CTA buttons use affiliate links
   And disclosure text: "Harga diperbarui beberapa saat lalu"
-  And Lazada redirect opens in new tab with product name pre-filled
 ```
 
 ### F-07: Error Handling
@@ -170,9 +166,7 @@ THEN show: "Produk tidak ditemukan. Mungkin sudah tidak tersedia."
 ## 6. Out of Scope (MVP)
 
 - User accounts / login
-- Lazada exact price comparison (search redirect only)
-- Tokopedia integration
-- TikTok Shop integration
+- Cross-platform comparison (Lazada, Tokopedia, TikTok Shop)
 - Search by product name (only by URL)
 - Price history chart
 - Browser extension

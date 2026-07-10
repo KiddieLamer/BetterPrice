@@ -124,18 +124,15 @@ CRON JOBS:
       - GraphQL query: match_id → products
       - Response: all Shopee sellers selling this item
       - Extract: product_name, image, price_min/max, shop_name
-   e. Build Lazada search redirect URL:
-      - Encode product name as query param
-      - Optionally wrap in Involve Asia deeplink for commission
-   f. Sort Shopee offers by price asc
-   g. KV cache: set response, TTL 5 min
-   h. Log to Postgres: search_log
-   i. Return { product, offers[], lazada_url }
+   e. Sort Shopee offers by price asc
+   f. KV cache: set response, TTL 5 min
+   g. Log to Postgres: search_log
+   h. Return { product, offers[] }
 
 4. Client renders result page:
    - ProductCard (image, name)
    - OfferList (Shopee sellers sorted by price)
-   - "Cek di Lazada" button → search redirect (new tab)
+   - CTA → Shopee affiliate link
 ```
 
 ---

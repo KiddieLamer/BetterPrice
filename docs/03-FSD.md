@@ -32,33 +32,27 @@
                      │  [Cancel]                            │
                      └──────────────────────────────────────┘
                                  │
-                     ┌───────────▼──────────────────────────┐
-                     │       RESULT PAGE                    │
-                     │  ┌──────────────────────────────┐   │
-                     │  │ [Image] Product Name         │   │
-                     │  │ Toko: Seller Name            │   │
-                     │  └──────────────────────────────┘   │
-                     │                                     │
-                     │  ┌─────── SHOPEE OFFERS ─────────┐  │
-                     │  │ Toko A   │ Rp 150.000  [Beli]│  │
-                     │  │ Toko B   │ Rp 145.000  [Beli]│  │← Termurah
-                     │  │ Toko C   │ Rp 165.000  [Beli]│  │
-                     │  └──────────────────────────────┘  │
-                     │                                     │
-                     │  ┌─── LAZADA ───────────────────┐   │
-                     │  │ [ Cek di Lazada ]            │   │
-                     │  │ (search redirect, cek manual)│   │
-                     │  └──────────────────────────────┘   │
-                     │  [ Cek Harga Lagi ]                │
-                     └──────────────────────────────────────┘
-                                 │
-                     ┌───────────▼──────────────────────────┐
-                     │     AFFILIATE REDIRECT               │
-                     │  Click Shopee → affiliate link       │
-                     │  Click Lazada → search page          │
-                     │  → User completes purchase           │
-                     │  → Platform earns commission         │
-                     └──────────────────────────────────────┘
+                      ┌───────────▼──────────────────────────┐
+                      │       RESULT PAGE                    │
+                      │  ┌──────────────────────────────┐   │
+                      │  │ [Image] Product Name         │   │
+                      │  │ Toko: Seller Name            │   │
+                      │  └──────────────────────────────┘   │
+                      │                                     │
+                      │  ┌─────── SHOPEE OFFERS ─────────┐  │
+                      │  │ Toko A   │ Rp 150.000  [Beli]│  │
+                      │  │ Toko B   │ Rp 145.000  [Beli]│  │← Termurah
+                      │  │ Toko C   │ Rp 165.000  [Beli]│  │
+                      │  └──────────────────────────────┘  │
+                      │  [ Cek Harga Lagi ]                │
+                      └──────────────────────────────────────┘
+                                  │
+                      ┌───────────▼──────────────────────────┐
+                      │     AFFILIATE REDIRECT               │
+                      │  Click Shopee → affiliate link       │
+                      │  → User completes purchase           │
+                      │  → Platform earns commission         │
+                      └──────────────────────────────────────┘
 ```
 
 ---
@@ -127,14 +121,9 @@
 │  ├─────────────────────────────────────┤│
 │  │ 🛒  Toko C   Rp 20.999.000  [Beli] ││
 │  │     4.7★  • Bandung                 ││
-│  └─────────────────────────────────────┘│
-│                                         │
-│  ┌─────────────────────────────────────┐│
-│  │  Cari di marketplace lain:          ││
-│  │  [🔍 Cek di Lazada] (new tab)       ││
-│  └─────────────────────────────────────┘│
-│                                         │
-│  [Cek Harga Lagi]                       │
+  │  └─────────────────────────────────────┘│
+  │                                         │
+  │  [Cek Harga Lagi]                       │
 │                                         │
 │  ⚠️ Harga dapat berubah.                │
 │  Kami mendapat komisi dari pembelian.   │
@@ -146,7 +135,7 @@
 | State | Behavior |
 |---|---|
 | **Loading** | Skeleton cards (3x shimmer) |
-| **Success** | Product info + Shopee offers sorted by price + Lazada redirect button |
+| **Success** | Product info + Shopee offers sorted by price |
 | **Empty (no offers found)** | "Produk tidak ditemukan" + alternative actions |
 | **Error (API failed)** | "Maaf, sedang gangguan" + retry button |
 
@@ -200,14 +189,12 @@ App
 │   │   ├── PriceSummary
 │   │   │   ├── BestPrice
 │   │   │   └── SavingsBadge
-│   │   ├── OfferList
+  │   │   ├── OfferList
 │   │   │   └── OfferCard[]
 │   │   │       ├── StoreName
 │   │   │       ├── Price
 │   │   │       ├── Rating
 │   │   │       └── CTAButton (Shopee affiliate link)
-│   │   ├── LazadaRedirect
-│   │   │   └── CTAButton (search redirect, new tab)
 │   │   ├── AffiliateDisclaimer
 │   │   └── RetryButton (on error)
 │   │
@@ -229,7 +216,6 @@ App
 |---|---|
 | **Link not Shopee** | Detect domain → "Harap gunakan link Shopee" |
 | **Deleted product** | Shopee returns null/error → "Produk sudah tidak tersedia" |
-| **Lazada redirect** | Show "Cek di Lazada" button (search by product name, opens new tab) |
 | **Same price** | Sort by store name alphabetically; both get "Termurah" badge |
 | **Extremely long URL** | Truncate display, parse correctly |
 | **URL with affiliate params** | Strip affiliate params before processing |
@@ -267,7 +253,6 @@ App
 | `compare_success` | Result loaded | product_id, offers_count |
 | `compare_error` | Error shown | error_type, message |
 | `affiliate_click` | Click Shopee CTA | store_name, product_id, price |
-| `lazada_click` | Click Lazada redirect | product_id, product_name |
 | `share_click` | Click share | product_id |
 
 *Implemented via Vercel Analytics (free tier) — no GA dependency*

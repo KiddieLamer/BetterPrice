@@ -9,18 +9,18 @@
 
 ## 1. Executive Summary
 
-BetterPrice is a price comparison platform targeting Indonesian online shoppers. Users paste a Shopee product link and instantly see the cheapest price across Shopee sellers and Lazada. Revenue comes from affiliate commissions when users click through to purchase. MVP focuses on API-only (no scraping) to achieve $0 hosting cost on Vercel Hobby tier.
+BetterPrice is a price comparison platform targeting Indonesian online shoppers. Users paste a Shopee product link and instantly see the cheapest price across different Shopee sellers. Revenue comes from affiliate commissions when users click through to purchase. MVP focuses on API-only (no scraping) to achieve $0 hosting cost on Vercel Hobby tier.
 
 ---
 
 ## 2. Problem Statement
 
 | Problem | Impact |
-|---|---|
-| Indonesian shoppers buy from 1-2 marketplaces only, unaware of cheaper alternatives on other platforms | Overpaying 10-40% per item |
-| Manual comparison across Shopee, Lazada, Tokopedia is tedious (open 5+ tabs) | Abandoned purchases, decision fatigue |
-| Existing aggregators (iPrice, BigGo) focus on search, not "paste link → compare" | No fast path for already-found products |
-| No platform serves the "I found this item, where's the cheapest?" workflow | Gap in user mental model |
+|---|---|---|
+| Indonesian shoppers find same product at different prices across Shopee sellers without knowing which is cheapest | Overpaying 10-40% per item |
+| Manual comparison across Shopee store tabs is tedious (open 5+ tabs) | Abandoned purchases, decision fatigue |
+| Existing aggregators (iPrice, BigGo) focus on cross-platform search, not "paste link → compare sellers" | No fast path for already-found products |
+| No platform serves the "I found this item, who sells it cheapest?" workflow | Gap in user mental model |
 
 ---
 
@@ -51,7 +51,7 @@ BetterPrice is a price comparison platform targeting Indonesian online shoppers.
 
 ### Market Context
 
-Shopee dominates Indonesian e-commerce (~40% GMV share). Tokopedia second (~20%). Lazada is distant third (~10%). V1 focuses on Shopee-to-Shopee comparison (the most impactful single-platform use case) before expanding cross-platform.
+Shopee dominates Indonesian e-commerce (~40% GMV share). Tokopedia second (~20%). Lazada is distant third (~10%). V1 focuses on Shopee-to-Shopee price comparison (the most impactful single-platform use case). Cross-platform comparison is deferred to V2.
 
 | Competitor | Strengths | Weaknesses | Our Advantage |
 |---|---|---|---|
@@ -70,8 +70,7 @@ Shopee dominates Indonesian e-commerce (~40% GMV share). Tokopedia second (~20%)
 | Channel | Commission Rate | Est. RPM |
 |---|---|---|
 | Shopee Affiliate Program | 2-8% per sale + Commissions Xtra | IDR 5k-40k/conversion |
-| Involve Asia (Shopee) | 1-5% per sale (optional, may not be needed) | IDR 2k-25k/conversion |
-| Involve Asia (Lazada redirect) | 1-10% per sale (search redirect only, no price data) | IDR 2k-50k/conversion |
+| Involve Asia (Shopee — optional) | 1-5% per sale | IDR 2k-25k/conversion |
 
 ### Projections (MVP → Year 1)
 
@@ -112,8 +111,7 @@ Shopee dominates Indonesian e-commerce (~40% GMV share). Tokopedia second (~20%)
 |---|---|---|---|---|
 | Shopee Affiliate API deprecated | Low | Critical | Build scraper backup (Playwright) |
 | Shopee Affiliate approval rejected | Medium | Critical | Apply early (Step 0); pivot to scraping if rejected |
-| Involve Asia API doesn't expose Lazada prices | Certain | Medium | Lazada = search redirect in V1, not price compare |
-| Affiliate commission rate cut | Medium | Medium | Diversify to Tokopedia (V2) |
+| Affiliate commission rate cut | Medium | Medium | Diversify to cross-platform (V2) |
 | Low conversion rate | Medium | Medium | Optimize UX, test CTA placement |
 | Competitor copies flow | High | Low | First-mover advantage, SEO moat |
 | API rate limits | Medium | Medium | Vercel KV caching |

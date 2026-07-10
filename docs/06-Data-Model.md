@@ -290,7 +290,6 @@ export interface CompareResponse {
     url: string | null;
     isCheapest: boolean;
   }>;
-  lazadaSearchUrl: string | null;
   meta: {
     currency: string;
     updatedAt: string;

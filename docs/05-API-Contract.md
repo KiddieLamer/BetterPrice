@@ -69,7 +69,6 @@ const CompareRequestSchema = z.object({
       "is_cheapest": true
     }
   ],
-  "lazada_search_url": "https://invol.co/clLazada123",
   "meta": {
     "currency": "IDR",
     "updated_at": "2026-07-07T10:30:00Z",
